@@ -1,5 +1,7 @@
 # Dog-Breed-Identification
 
+![dog1](./print/dog1.png)
+
 This repository presents my attempt to build a dog breed identifier tool using neural network designed with [Keras](https://keras.io/). <br>
 
 This work is inspired by the [Kaggle Dog Breed Identification Challenge](https://www.kaggle.com/c/dog-breed-identification)(I did not take part in the competition because it was too late to submit). However, being a doggo friend, I enjoyed the topic and wanted to take the opportunity to improve my skills in computer vision! So, I took a dog breed identification dataset and built my own classifier.<br>
@@ -28,14 +30,12 @@ The framework of this notebook is:
 - Training & Testing
 - Identify the breed of dogs
 
-For this competition, the current Kaggle Leaderboard accuracy I reached is 0.79904. 
+![dog2](./print/dog2.png)
 
 ## Data-Augmentation
 
 The number of images per breed is too small in the dataset. 
-
 ![labels](./print/labels.png)
-
 It makes the model more likely to overfit. The first step is to proceed to the augmentation of the input data. 
 
 We can operate several operations to augment the number of images. Moreover, the customer is not a professional photographer, so this kind of transformation is necessary to add robustness to the 'amateurism' of the photo:
@@ -47,6 +47,8 @@ We can operate several operations to augment the number of images. Moreover, the
 - Lighting condition: really important because the lightning changes a lot following the picture conditions. (need to be done to improve the model)
 
 Practically, I used the [keras train generator](https://keras.io/preprocessing/image/) built-in function. 
+
+![augmentedImage](./print/augmentedImage.png)
 
 ## CNN Architecture
 
@@ -80,7 +82,7 @@ My final architecture is:
  - One output layer (133 neurons)
 
 
-![SurvivalHistogram](survive_or_not.png)
+![modelSumary](./print/modelSumary.png)
 
 ## Training & Testing
 
@@ -88,6 +90,12 @@ The framework is to split the dataset into one training and one testing (80% for
 The remaining 10% are used to test both models and choose the best one. 
 
 <u>Remark:</u> Having no GPU, I can't train the models so the results are not representative of the real performances. After an hour of training, we went from 1% to 15% of accuracy which is much more than 1/133 (nb of labels). So, with more training time we can go to a better accuracy. 
+
+### Training of Xception
+![XceptionTraining](./print/XceptionTraining.png)
+
+### Training of VGGNet
+![VGGNetTraining](./print/VGGNetTraining.png)
 
 ## Identify the breed of dogs
 
